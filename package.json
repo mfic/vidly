@@ -1,0 +1,22 @@
+{
+  "name": "medique",
+  "version": "1.0.0",
+  "description": "Register owned media.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "NODE_ENV=development DEBUG=app:* nodemon"
+  },
+  "author": "Jan Quest",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "express": "^4.17.1",
+    "joi": "^17.4.0",
+    "mongoose": "^5.12.9"
+  },
+  "devDependencies": {
+    "debug": "^2.6.9",
+    "nodemon": "^2.0.7"
+  }
+}
