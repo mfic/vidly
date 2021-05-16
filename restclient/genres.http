@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3000
+@model = api/genres
+@customId = 60a0700aae18693b13a8d865
+
+### ReadAll
+GET {{ baseUrl }}/{{model}} HTTP/1.1
+
+### ReadOne
+GET {{ baseUrl }}/{{model}}/{{ getPost.response.body._id }} HTTP/1.1
+
+### ReadOne Custom
+GET {{ baseUrl }}/{{model}}/{{customId}} HTTP/1.1
+
+### Create
+# @name getPost
+POST {{ baseUrl }}/{{model}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Horror"
+}
+
+### Update
+PUT {{ baseUrl }}/{{model}}/{{ getPost.response.body._id }} HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Action"
+}
+
+### Delete
+DELETE {{ baseUrl }}/{{model}}/{{ getPost.response.body._id }} HTTP/1.1
+
+### Delete Custom
+DELETE {{ baseUrl }}/{{model}}/{{customId}} HTTP/1.1
