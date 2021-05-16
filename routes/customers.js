@@ -1,5 +1,4 @@
-const Customer = require('../model/customers');
-const Joi = require('joi');
+const { Customer, validate } = require('../model/customers');
 const express = require('express');
 const router = express.Router();
 
@@ -16,7 +15,7 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-    const { error } = validateCustomer(req.body);
+    const { error } = validate(req.body);
     if (error) res.status(400).send(error.details[0].message)
 
     let customer = req.body;
@@ -26,7 +25,7 @@ router.post('/', async (req, res) => {
 });
 
 router.put('/:id', async (req, res) => {
-    const { error } = validateCustomer(req.body);
+    const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
 
     const customer = await Customer.findByIdAndUpdate({ _id: req.params.id }, {
@@ -42,14 +41,5 @@ router.delete('/:id', async (req, res) => {
 
     res.send(customer);
 });
-
-function validateCustomer(customer) {
-    const schema = Joi.object({
-        name: Joi.string().min(3).max(255).required(),
-        isGold: Joi.boolean(),
-        phone: Joi.string().min(3).max(255).required()
-    });
-    return schema.validate(customer);
-}
 
 module.exports = router;

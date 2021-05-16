@@ -19,7 +19,7 @@ Content-Type: application/json
 {
     "name": "John Doe",
     "isGold": true,
-    "phone": "123456"
+    "phone": "123456",
 }
 
 ### Update
