@@ -1,6 +1,6 @@
 @baseUrl = http://localhost:3000
-@model = api/movies
-@customId = 60a134ab0e77fd5dcfaf92a
+@model = api/rentals
+@customId = 60a176acb7378870223261da
 
 ### ReadAll
 GET {{ baseUrl }}/{{model}} HTTP/1.1
@@ -17,10 +17,8 @@ POST {{ baseUrl }}/{{model}} HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Terminator",
-    "genreId": "60a06dae9cb8b339eba33c1d",
-    "numberInStock": "3",
-    "dailyRentalRate": "2"
+    "customerId": "60a0e5c809fe9646a9eae06b",
+    "movieId": "60a134a80e77fd5dcfaf92a8"
 }
 
 ### Update
@@ -28,10 +26,8 @@ PUT {{ baseUrl }}/{{model}}/{{ getPost.response.body._id }} HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Terminator2",
-    "genreId": "60a06dcd9cb8b339eba33c1e",
-    "numberInStock": "2",
-    "dailyRentalRate": "2"
+    "customerId": "60a0e5c809fe9646a9eae06b",
+    "movieId": "60a06dae9cb8b339eba33c1d"
 }
 
 ### Delete

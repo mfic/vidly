@@ -19,10 +19,10 @@ router.post('/', async (req, res) => {
         if (error) return res.status(400).send(error.details[0].message)
 
         // Construct Object
-        let genre = {
+        const genre = {
             name: req.body.name
         };
-        genre = await new Genre(genre).save();
+        await new Genre(genre).save();
 
         res.send(genre)
     } catch (err) {
