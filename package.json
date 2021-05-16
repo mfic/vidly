@@ -1,5 +1,5 @@
 {
-  "name": "medique",
+  "name": "mediaManager",
   "version": "1.0.0",
   "description": "Register owned media.",
   "main": "index.js",
