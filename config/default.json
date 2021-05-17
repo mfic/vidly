@@ -1,8 +1,6 @@
 {
     "PORT": 3000,
-     "mongodb": {
-        "uri": "",
-        "user": "",
-        "password": ""
-      }
+    "jwtPrivateKey": "",
+    "saltRounds": 10,
+    "mongodbUri": ""
 }
