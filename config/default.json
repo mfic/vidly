@@ -2,5 +2,7 @@
     "PORT": 3000,
     "jwtPrivateKey": "",
     "saltRounds": 10,
-    "mongodbUri": ""
+    "db": {
+        "mongoUri": ""
+    }
 }
