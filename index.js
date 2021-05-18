@@ -7,6 +7,4 @@ require('./startup/database')();
 require('./startup/routes')(app);
 require('./startup/config.js')();
 require('./startup/validation')();
-
-const port = config.PORT;
-app.listen(port, () => winston.info(`Listen on port ${port}`));
+require('./startup/server')(app);
