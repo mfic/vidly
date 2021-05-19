@@ -1,0 +1,6 @@
+{
+    "jwtPrivateKey": "myPrivateKey",
+    "db": {
+        "mongoUri": "mongodb+srv://medique:sXiAMQukLwRvZyth@cluster0.xld38.mongodb.net/medique_test?retryWrites=true&w=majority"
+    }
+}
