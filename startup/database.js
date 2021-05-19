@@ -4,5 +4,5 @@ const winston = require('winston');
 
 module.exports = function () {
     mongoose.connect(config.db.mongoUri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
-        .then(() => winston.info('Connected to MonogoDB...'))
+        .then(() => winston.info(`Connected to ${config.db.mongoUri}`))
 }
