@@ -1,5 +1,5 @@
-const auth = require('../middleware/auth');
-const { User, validate } = require('../model/user');
+const auth = require('../middlewares/auth');
+const { User, validate } = require('../models/user');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const express = require('express');

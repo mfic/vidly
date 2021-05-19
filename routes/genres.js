@@ -1,6 +1,6 @@
-const { Genre, validate } = require('../model/genre');
-const auth = require('../middleware/auth');
-const admin = require('../middleware/admin');
+const { Genre, validate } = require('../models/genre');
+const auth = require('../middlewares/auth');
+const admin = require('../middlewares/admin');
 const express = require('express');
 const router = express.Router();
 
