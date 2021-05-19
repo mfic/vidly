@@ -4,7 +4,7 @@
   "description": "Register owned media.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "NODE_ENV=test jest --watchAll",
     "dev": "NODE_ENV=development DEBUG=app:* nodemon"
   },
   "author": "Jan Quest",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "debug": "^2.6.9",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7"
   }
 }
