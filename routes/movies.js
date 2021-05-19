@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const { Genre } = require('../model/genre');
-const { Movie, validate } = require('../model/movie');
+const { Genre } = require('../models/genre');
+const { Movie, validate } = require('../models/movie');
 
 router.get("/", async (req, res) => {
     const movies = await Movie.find().sort({ title: 1 });
