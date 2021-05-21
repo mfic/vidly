@@ -6,7 +6,7 @@ COPY ["package.json", "package-lock.json", "./"]
 FROM base as test
 RUN npm ci
 COPY . .
-RUN [ "npm", "run", "test" ]
+RUN [ "npm", "run", "test-ci" ]
 
 FROM base as prod
 RUN npm ci --production

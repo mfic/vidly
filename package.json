@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --verbose",
+    "test-ci": "jest",
     "dev": "NODE_ENV=development DEBUG=app:* nodemon"
   },
   "author": "Jan Quest",
@@ -27,6 +28,7 @@
   "devDependencies": {
     "debug": "^2.6.9",
     "jest": "^26.6.3",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.3"
   }
 }
