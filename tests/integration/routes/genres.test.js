@@ -1,3 +1,4 @@
+const { result } = require('lodash');
 const mongoose = require('mongoose');
 const request = require('supertest');
 const { Genre } = require('../../../models/genre');
@@ -108,6 +109,74 @@ describe('/api/genres', () => {
 
       expect(res.body).toHaveProperty('_id');
       expect(res.body).toHaveProperty('name', 'genre1');
+    });
+  });
+
+  describe('PUT /:id', () => {
+    let token;
+    let genre;
+    let name;
+    let id;
+
+    const exec = () => {
+      return request(server)
+        .put('/api/genres/' + id)
+        .set('x-auth-token', token)
+        .send({ name });
+    }
+
+    beforeEach(async () => {
+      genre = await new Genre({ name: 'genre1' }).save();
+      id = genre._id;
+      token = new User().generateAuthToken();
+    });
+
+    it('should return 400 if the new genre is invalid', async () => {
+      name = '12';
+      const res = await exec();
+
+      expect(res.status).toBe(400);
+    });
+
+    it('should return the new genre if valid', async () => {
+      name = 'genre2';
+
+      const res = await exec();
+
+      expect(res.status).toBe(200);
+      expect(res.body).toMatchObject({ name: 'genre2' })
+    });
+  });
+
+  describe('DELTE /:id', () => {
+    let token;
+    let genre;
+    let id
+
+    const exec = () => {
+      return request(server)
+        .delete('/api/genres/' + id)
+        .set('x-auth-token', token)
+    }
+
+    beforeEach(async () => {
+      genre = await new Genre({ name: 'genre1' }).save();
+      id = genre._id;
+      token = new User({ isAdmin: true }).generateAuthToken();
+    });
+
+    it('should return 404 if the id does not exist', async () => {
+      id = mongoose.Types.ObjectId();
+      const res = await exec();
+
+      expect(res.status).toBe(404);
+    });
+
+    it('should delete the genre', async () => {
+      const res = await exec();
+
+      expect(res.status).toBe(200);
+      expect(res.body).toMatchObject({ name: 'genre1' });
     });
   });
 });
