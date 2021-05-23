@@ -1,4 +1,5 @@
 node_modules/
+coverage/
 config/
 !config/default.json
 logs

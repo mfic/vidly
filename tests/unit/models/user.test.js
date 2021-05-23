@@ -11,7 +11,7 @@ describe('user.generateToken', () => {
       isAdmin: false
     }
     const user = new User(payload);
-    const token = user.generateToken()
+    const token = user.generateAuthToken()
     const decoded = jwt.verify(token, config.jwtPrivateKey)
 
     expect(decoded).toMatchObject(payload);
